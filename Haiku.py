@@ -17,3 +17,6 @@ def post_to_discord(haiku):
     }
     response = requests.post(webhook_url, json=payload)
     print(response.status_code)
+
+if __name__ "__main__":
+api_key = "We NEED and API"
