@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import random
 
 def scrape_headlines(url):
-
     try:
         response = requests.get(url)
         response.raise_for_status()
@@ -12,13 +11,10 @@ def scrape_headlines(url):
         headlines = soup.find_all(["h1", "h2", "h3"])
         headline_texts = [headline.get_text().strip() for headline in headlines]
 
-        if headline_texts:
-            return random.choice(headline_texts)
-        else:
-            return "No headlines found on this page."
+        return headline_texts if headline_texts else ["No headlines found on this page."]
     except requests.exceptions.RequestException as e:
         print(f"Error fetching URL: {e}")
-        return None
+        return []
 
 
 if __name__ == "__main__":
