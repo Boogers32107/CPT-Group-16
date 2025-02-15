@@ -1,6 +1,6 @@
 import requests
 import random
-from headline_scraper import scrape_headlines  
+from headlinescraper import scrape_headlines
 
 def generate_haiku(headline_list):
     syllables = [5, 7, 5]
